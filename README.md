@@ -1,6 +1,6 @@
 # ZsDevUtil
 
-ZsDevUtil is an application that try to copy functionality of  [DevUtils](https://devutils.com/demo/).
+ZsDevUtil is a JavaFx application that try to copy functionality of  [DevUtils](https://devutils.com/demo/).
 
 
 ## Current Feature
