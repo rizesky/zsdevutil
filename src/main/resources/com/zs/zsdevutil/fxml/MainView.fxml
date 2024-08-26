@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zs.zsdevutil.view.MainView">
+    <BorderPane>
+        <left>
+            <VBox fx:id="sidebarContainer" styleClass="sidebar">
+                <HBox alignment="CENTER_LEFT" spacing="5" styleClass="search-container">
+                    <TextField fx:id="searchField" promptText="Search... " HBox.hgrow="ALWAYS" />
+                    <Button>
+                        <graphic>
+                            <FontIcon iconLiteral="fas-columns"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+                <ListView fx:id="toolsList" VBox.vgrow="ALWAYS" styleClass="sidebar-list"/>
+                <Button text="Send Feedback" fx:id="sendFeedbackButton">
+                    <VBox.margin>
+                        <Insets top="10"/>
+                    </VBox.margin>
+                    <graphic>
+                        <FontIcon iconLiteral="fas-envelope"/>
+                    </graphic>
+                </Button>
+            </VBox>
+        </left>
+        <center>
+            <VBox>
+                <HBox alignment="CENTER" styleClass="content-header">
+                    <HBox HBox.hgrow="ALWAYS">
+                        <Label fx:id="contentTitle" styleClass="content-title" HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER"/>
+                    </HBox>
+                </HBox>
+                <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" styleClass="content-area">
+                    <Label text="Choose a utility from the menu to begin"/>
+                </StackPane>
+            </VBox>
+        </center>
+        <bottom>
+            <HBox fx:id="notificationArea" styleClass="notification-area" managed="false" visible="false">
+                <HBox styleClass="notification-content" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="10">
+                    <FontIcon iconLiteral="fas-exclamation-circle" styleClass="notification-icon"/>
+                    <Label fx:id="notificationLabel" styleClass="notification-text" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                </HBox>
+                <Button fx:id="closeNotificationBtn" styleClass="close-notification-btn" onAction="#closeNotification">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-times"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </bottom>
+    </BorderPane>
+</StackPane>

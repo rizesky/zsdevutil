@@ -1,0 +1,67 @@
+/* Main application styles */
+@font-face {
+    font-family: "JetBrains Mono NerdFont";
+    src: url("../fonts/JetBrainsMonoNerdFontMono-Regular.ttf");
+}
+
+.root {
+    -fx-font-family: "JetBrains Mono NerdFont";
+}
+
+/* Sidebar styles */
+.sidebar {
+    -fx-background-color: #3c3f41;
+    -fx-padding: 10px;
+    -fx-pref-width: 250px;
+}
+
+.search-container {
+    -fx-padding: 0 0 10px 0;
+}
+
+.sidebar-list {
+    -fx-background-color: #3c3f41;
+}
+
+.sidebar-list .list-cell {
+    -fx-background-color: #3c3f41;
+    -fx-padding: 5px 10px;
+}
+
+.sidebar-list .list-cell:selected {
+    -fx-background-color: #4e5254;
+}
+
+/* Content area styles */
+.content-header {
+    -fx-background-color: #3c3f41;
+    -fx-padding: 10px;
+    -fx-border-width: 0 0 1 0;
+}
+
+.content-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.content-area {
+    -fx-padding: 20px;
+}
+
+/* Specific control styles */
+.button, .toggle-button, .combo-box, .choice-box, .menu-button {
+    -fx-cursor: hand;
+}
+
+/* Notification styles */
+.notification-area {
+    -fx-background-color: #423f3f;
+}
+
+.notification-text {
+    -fx-text-fill: #ff6b68;
+}
+
+.close-notification-btn .ikonli-font-icon {
+    -fx-icon-color: #ff6b68;
+}

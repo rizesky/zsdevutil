@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.zs.zsdevutil.controls.CopyButton?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.fxmisc.richtext.CodeArea?>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zs.zsdevutil.view.JsonFormatValidateView">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <SplitPane VBox.vgrow="ALWAYS">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Input: "/>
+                <Button text="Clipboard" onAction="#pasteFromClipboard">
+                    <tooltip>
+                        <Tooltip text="Get from clipboard"/>
+                    </tooltip>
+                </Button>
+                <Button text="Sample" onAction="#loadSample">
+                    <tooltip>
+                        <Tooltip text="Get from provided sample"/>
+                    </tooltip>
+                </Button>
+                <Button text="Clear" onAction="#clearInput">
+                    <tooltip>
+                        <Tooltip text="Clear the input field"/>
+                    </tooltip>
+                </Button>
+            </HBox>
+            <CodeArea fx:id="inputArea" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="10" bottom="10"/>
+                </VBox.margin>
+            </CodeArea>
+            <Button text="Format" onAction="#formatJson">
+                <tooltip>
+                    <Tooltip text="Format JSON (Ctrl+Enter)"/>
+                </tooltip>
+            </Button>
+        </VBox>
+
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Output:"/>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Indent: "/>
+                <ComboBox fx:id="indentationComboBox" promptText="Spaces"/>
+                <CopyButton alignment="CENTER_RIGHT" onAction="#copyOutput"/>
+            </HBox>
+            <VBox fx:id="outputContainer" VBox.vgrow="ALWAYS">
+                <CodeArea fx:id="outputArea" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets top="10" bottom="10"/>
+                    </VBox.margin>
+                </CodeArea>
+            </VBox>
+            <VBox spacing="10">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="jsonPathField" promptText="Apply JSON Path (e.g., $.store.book[*].author)" HBox.hgrow="ALWAYS"/>
+                    <Button text="Apply" onAction="#applyJsonPath">
+                        <tooltip>
+                            <Tooltip text="Apply path (Ctrl+Enter)"/>
+                        </tooltip>
+                    </Button>
+                </HBox>
+                <Hyperlink text="Learn JSON path" onAction="#openJsonPathTutorial"/>
+            </VBox>
+        </VBox>
+    </SplitPane>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label fx:id="statusLabel"/>
+    </HBox>
+</VBox>

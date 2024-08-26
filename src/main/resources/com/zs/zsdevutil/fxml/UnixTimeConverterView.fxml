@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.zs.zsdevutil.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<VBox spacing="5" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zs.zsdevutil.view.UnixTimeConverterView">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="Input:" />
+        <VBox HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT">
+                <TextField fx:id="inputField" HBox.hgrow="ALWAYS" />
+                <Button text="Now" onAction="#setNow">
+                    <tooltip>
+                        <Tooltip text="Set input from current date"/>
+                    </tooltip>
+                </Button>
+                <Button text="Clipboard" onAction="#pasteFromClipboard">
+                    <tooltip>
+                        <Tooltip text="Copy from clipboard"/>
+                    </tooltip>
+                </Button>
+                <Button text="Clear" onAction="#clearInput">
+                    <tooltip>
+                        <Tooltip text="Clear the input field"/>
+                    </tooltip>
+                </Button>
+            </HBox>
+        </VBox>
+    </HBox>
+    <Label fx:id="errorMessageLabel" styleClass="error-label" wrapText="true" >
+        <graphic>
+            <FontIcon iconLiteral="fas-exclamation-circle" iconColor="darkred" iconSize="15"/>
+        </graphic>
+    </Label>
+
+    <ComboBox fx:id="conversionModeComboBox" maxWidth="Infinity" />
+
+    <Separator/>
+    <GridPane hgap="5" vgap="2">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="200" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="50" prefWidth="100" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="200" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+
+        <Label text="Local:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <HBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <TextField fx:id="localDateField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyLocal"/>
+        </HBox>
+
+        <Label text="Day of year" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <HBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="dayOfYearField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyDayOfYear" />
+        </HBox>
+
+
+        <Label text="Other formats (local)" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <VBox spacing="2" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="7">
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat1" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat1"/>
+            </HBox>
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat2" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat2"/>
+            </HBox>
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat3" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat3"/>
+            </HBox>
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat4" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat4"/>
+            </HBox>
+
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat5" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat5"/>
+            </HBox>
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat6" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat6"/>
+            </HBox>
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat7" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat7"/>
+            </HBox>
+
+            <HBox spacing="2" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT">
+                <TextField fx:id="otherFormat8" editable="false" HBox.hgrow="ALWAYS" />
+                <CopyButton onAction="#copyOtherFormat8"/>
+            </HBox>
+        </VBox>
+
+        <Label text="UTC (ISO 8601):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <HBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <TextField fx:id="utcField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyUTC"/>
+        </HBox>
+
+        <Label text="Week of year" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <HBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="weekOfYearField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyWeekOfYear"/>
+        </HBox>
+
+        <Label text="Relative:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <HBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <TextField fx:id="relativeField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyRelative"/>
+        </HBox>
+
+        <Label text="Is leap year?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <HBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="isLeapYearField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyIsLeapYear"/>
+        </HBox>
+
+        <Label text="Unix time:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <HBox spacing="2" GridPane.columnIndex="0" GridPane.rowIndex="7">
+            <TextField fx:id="unixTimeField" editable="false" HBox.hgrow="ALWAYS" />
+            <CopyButton onAction="#copyUnixTime"/>
+        </HBox>
+    </GridPane>
+    <Separator/>
+    <TitledPane text="Supported Date Formats" fx:id="supportedDateFormatPane" visible="false" expanded="false">
+        <VBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <ListView fx:id="supportedFormatListView" VBox.vgrow="ALWAYS" prefHeight="200"/>
+        </VBox>
+    </TitledPane>
+
+</VBox>

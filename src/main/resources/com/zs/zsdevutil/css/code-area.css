@@ -1,0 +1,56 @@
+/* Code Area Styles */
+.code-area {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #d3d3d3;
+    -fx-font-size: 12px;
+}
+
+.code-area .text {
+    -fx-fill: #d3d3d3;
+}
+
+.code-area .caret {
+    -fx-stroke: #d3d3d3;
+}
+
+/* Bracket colors */
+.code-area .bracket-1 { -fx-fill: #c678dd; }
+.code-area .bracket-2 { -fx-fill: #61afef; }
+.code-area .bracket-3 { -fx-fill: #98c379; }
+.code-area .bracket-4 { -fx-fill: #e06c75; }
+.code-area .bracket-5 { -fx-fill: #d19a66; }
+.code-area .bracket-6 { -fx-fill: #56b6c2; }
+
+.code-area .bracket-default { -fx-fill: #abb2bf; }
+
+/* Syntax highlighting */
+.code-area .string { -fx-fill: #98c379; }
+.code-area .number { -fx-fill: #d19a66; }
+.code-area .boolean { -fx-fill: #56b6c2; }
+.code-area .null { -fx-fill: #c678dd; }
+
+/* Line number styles */
+.custom-line-number-wrapper {
+    -fx-background-color: #1e1e1e;
+    -fx-border-width: 0 1px 0 0;
+    -fx-border-color: #3c3f41;
+}
+
+.custom-line-number {
+    -fx-text-fill: #6b6b6b;
+    -fx-padding: 0 5 0 5;
+}
+
+/* Selection style */
+.code-area .selection {
+    -fx-fill: #3e4451;
+}
+
+/* Caret line highlight */
+.code-area .paragraph-box {
+    -fx-background-color: transparent;
+}
+
+.code-area .paragraph-box.current-line {
+    -fx-background-color: #2c313a;
+}
